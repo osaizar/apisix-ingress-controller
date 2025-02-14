@@ -32,6 +32,8 @@ FROM registry.suse.com/suse/sle15:15.6
 LABEL maintainer="gxthrj@163.com"
 ENV TZ=Hongkong
 
+RUN zypper install wget -y
+
 WORKDIR /ingress-apisix
 COPY --from=build-env /build/apisix-ingress-controller .
 COPY ./conf/apisix-schema.json ./conf/apisix-schema.json

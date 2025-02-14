@@ -28,7 +28,8 @@ RUN if [ "$ENABLE_PROXY" = "true" ] ; then go env -w GOPROXY=https://goproxy.cn,
 COPY . .
 RUN --mount=type=cache,target=/root/.cache/go-build make build
 
-FROM gcr.io/distroless/static-debian12:${BASE_IMAGE_TAG}
+# FROM gcr.io/distroless/static-debian12:${BASE_IMAGE_TAG}
+FROM registry.suse.com/suse/sle15:15.6
 LABEL maintainer="gxthrj@163.com"
 ENV TZ=Hongkong
 
